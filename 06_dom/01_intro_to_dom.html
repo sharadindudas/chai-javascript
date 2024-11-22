@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Intro to DOM</title>
+        <style>
+        .bg-black{
+            background-color: #1a1a1a;
+            color: white;
+        }
+    </style>
+    </head>
+    <body class="bg-black">
+        <div>
+            <h1 class="heading" id="title">Introduction to DOM in Chai aur code
+                <span style="display: none;">This is a text</span></h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+
+            <ul>
+                <li class="list-item">Eat</li>
+                <li class="list-item">Sleep</li>
+                <li class="list-item">Code</li>
+                <li class="list-item">Gym</li>
+                <li class="list-item">Repeat</li>
+            </ul>
+        </div>
+
+        <script>
+
+//! Intro to DOM
+/*
+    Dom -> The webpage or the document converted to object that is known as DOM (Document Object Model) and we can do dom manipulation by understanding DOM.
+
+    Everything in DOM is known as node (text node, element node)
+
+*/
+
+// console.log(document); -> sends our whole html file content
+// console.dir(document); -> sends all the properties and methods associated with the document
+
+const title = document.getElementById("title");
+// console.log(title)
+
+// Behind the scenes document understands className although it shows class to avoid the conflict with the class keyword
+
+console.log(title.className)
+console.log(title.id)
+
+console.log(title.getAttribute("class")) // to get the attribute
+title.setAttribute("class", "heading test") // overrides the current attribute (class) with this new one
+
+title.style.backgroundColor = "green";
+
+console.log(title.textContent) // gives all the content regardless it is shown on our screen or not
+console.log(title.innerHTML) // gives all the content along with html
+console.log(title.innerText) // gives the content which is shown on our screen
+
+const heading = document.querySelector("#title");
+console.log(heading)
+
+const ul = document.querySelector("ul");
+console.log(ul)
+
+ul.querySelectorAll("li").forEach((li) => {
+    console.log(li)
+})
+
+// Nodelist, HTMLCollection are not pure Array and check its prototype to see the methods and map method is available for array that's why we can use it there not in Nodelist or HTMLCollection
+// We can loop Nodelist using forEach but not with map method but for HTMLCollection we cannot iterate it using forEach or map
+
+const ListItems = document.getElementsByClassName("list-item");
+Array.from(ListItems).forEach((li) => console.log(li)) // converts it to array
+
+
+    </script>
+    </body>
+</html>

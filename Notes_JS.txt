@@ -1,0 +1,31 @@
+Javascript and its Environment
+-------------------------------
+Code has some meaning and syntax or structure and has some extension
+The diff between .js or any other programming extension and .txt file is that the file which can be executed inside any software (compiler/interpreter)
+
+The software was attached with browser so that's why he had to make index.html and add script.js then run our javascript code inside browser and now the software is seperately used everywhere even outside the browser in backend, mobile apps, desktop apps.
+
+Every language has their environment (to code on our machine easily) so javascript also has its own environment and there are lots of environment for js such as nodejs, deno, bun, etc.
+
+Concept of API
+---------------
+To understand API we need to understand -> How to communicate and How to be lazy
+
+To communicate between two languages we decide two things : Protocol and Data (send or receive)
+
+we take one language (Java) to create the system and using that system we make API and API is nothing but data but structured data after discussing with everyone (who wants API) so that the other system (of any language) can understand Data using the help of API.
+It can be diff systems, mobile app, website or even servers communicating with each other.
+
+getting the current data of weather using the API 
+login into google/twitter/etc but in return just send us data
+
+The data comes to us after sometime and we don't need to worry about how the data is coming or where are they getting the data we just need to call the data and use it by seeing the API documentation.
+
+API request and V8 engine
+--------------------------
+API (Application Programming Interface) -> Talking language between two machines/systems and the systems can be backend|frontend, our own backend|frontend, someone else's backend|our frontend, someone else's backend|frontend and it is possible two systems wants to talk one in java, one in javascript or one in ruby or one in php so the medium of communication between two system is known as API.
+
+fetch() is relatively new came 4-5 years ago but before XMLHttpRequest were used to fetch API data.
+
+JS runtime provides the debugging tool (console) and other API which are originally not the part of core JS. 
+v8 engine gives the access to the debugging tool and other API
