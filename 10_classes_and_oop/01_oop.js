@@ -1,50 +1,57 @@
-//! Object Literal - literally making a object
-
+//! Object literal => Literally a object
 const user = {
-    username: "hitesh",
+    username: "sharadindu",
     loginCount: 8,
     signedIn: true,
 
-    getUserDetails(){
-        // console.log(`Username is ${this.username} and has logged in ${this.loginCount} times.`);
-        // console.log(this)
+    getUserDetails: function () {
+        // console.log("Got user details from db");
+        // console.log(`Username: ${this.username}`);
+        console.log(this);
     }
-}
-
+};
+// console.log(user.username);
+// console.log(user["loginCount"]);
 // user.getUserDetails();
-// console.log(this)
 
-// const promiseOne = new Promise()
-// const date = new Date()
+// this => Referring to the current context
+// console.log(this); // this on browser provides window object globally but on node.js it gives empty object {}
 
-//! new keyword is constructor function as it helps to create multiple instances (copy) of the object from a single object literal
+//! new => calling the constructor function to use one object literal to create new instances of objects and also to refer to new context (this)
 
-function User(username, loginCount, isLoggedIn){
+// function User(username, loginCount, isLoggedIn) {
+//     this.username = username;
+//     this.loginCount = loginCount;
+//     this.isLoggedIn = isLoggedIn;
+//     this.greetings = function () {
+//         return `Hello ${this.username}`;
+//     };
+//     return this;
+// }
+// const userOne = new User("remo", 16, true);
+// const userTwo = new User("ram", 11, false);
+// console.log(userOne);
+// console.log(userTwo);
+
+// What happens we use "new" keyword
+// 1. empty object (this) will be created
+// 2. Values are pushed inside the "this" object
+// 3. "this" object is returned automatically
+
+// console.log(userOne.greetings());
+// console.log(userTwo.greetings());
+
+// console.log(userOne.constructor); // Referring to the constructor function (User)
+
+function User(username, email) {
     this.username = username;
-    this.loginCount = loginCount;
-    this.isLoggedIn = isLoggedIn;
-    this.greeting = function(){
-        console.log(`Welcome ${this.username}`)
-    }
-
-    // return this; //! it implicitly returns this whatsoever
+    this.email = email;
+    return this;
 }
 
+User.prototype.greetings = function(){
+    return `Hello ${this.username}`
+}
 
-// const userOne = User("Remo", 12, true)
-// const userTwo = User("Sharadindu", 11, false) //! This overrides the previous values so to avoid the overriding the prev values we can use "new" keyword to make a copy of an object and make multiple objects using that structure
-// console.log(userOne)
-
-const userOne = new User("Remo", 12, true)
-const userTwo = new User("Sharadindu", 11, false)
-// console.log(userOne, userTwo)
-
-/* 
-Q. What happens when new keyword is used ?
-- empty Object is created (this)
-- constructor function is called (packs the arguments and all and gives it to us)
-- the values are injected from the arguments and all to the "this" object
-- returns the this object automatically
-*/
-
-console.log(userOne.constructor) // Reference of its own function
+const userOne = new User("Remo", "remo@gmail.com");
+const userTwo = new User("Ramu", "ramu@gmail.com");
